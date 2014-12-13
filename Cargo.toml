@@ -1,0 +1,5 @@
+[package]
+
+name = "checker"
+version = "0.0.1"
+authors = ["Zalizko Sergey <sergonas@gmail.com>"]

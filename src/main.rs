@@ -6,7 +6,7 @@ mod gamecore;
 
 fn main() {
     let board = GameBoard::new();
-    let bot = DummyBot::new(State::O);
+    let mut bot: DummyBot = Bot::new(State::O);
     board.make_turn(State::X, (0, 0));
     board.make_turn(State::O, bot.get_move(&board));
 }

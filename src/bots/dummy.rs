@@ -2,15 +2,11 @@ use gamecore::{GameBoard,State};
 use std::rand;
 use bots::Bot;
 
-pub struct DummyBot {
-    side: State
-}
+pub struct DummyBot;
 
 impl Bot for DummyBot {
     fn new(side: State) -> DummyBot {
-        DummyBot{
-            side: side
-        }
+        DummyBot
     }
 
     fn get_move(self, board: &GameBoard) -> (uint, uint) {

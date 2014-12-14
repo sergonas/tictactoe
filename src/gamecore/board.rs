@@ -11,22 +11,27 @@ impl GameBoard {
         }
     }
 
-    pub fn make_turn(mut self, who: State, at: (uint, uint)) -> bool {
-        if self.field[at.val0()][at.val1()] == who {
-            self.field[at.val0()][at.val1()] = who;
-            true
-        } else {
-            false
-        }
+    pub fn set_at(& mut self, who: State, at: (uint, uint)) {
+        self.field[at.val0()][at.val1()] = who;
     }
 
-    pub fn get_at(self, at: (uint, uint)) -> State {
+    pub fn get_at(&self, at: (uint, uint)) -> State {
         self.field[at.val0()][at.val1()]
     }
 }
 
 pub enum State {
     Empty, X, O
+}
+
+impl State {
+    pub fn negate(self) -> State {
+        match self {
+            State::O => State::X,
+            State::X => State::O,
+            _ => State::Empty
+        }
+    }     
 }
 
 impl PartialEq for State {

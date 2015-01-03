@@ -12,11 +12,11 @@ impl GameBoard {
     }
 
     pub fn set_at(& mut self, who: State, at: (uint, uint)) {
-        self.field[at.val0()][at.val1()] = who;
+        self.field[at.0][at.1] = who;
     }
 
     pub fn get_at(&self, at: (uint, uint)) -> State {
-        self.field[at.val0()][at.val1()]
+        self.field[at.0][at.1]
     }
 }
 

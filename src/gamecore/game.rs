@@ -25,7 +25,7 @@ impl Game {
 		}
 	}
 
-	pub fn make_move_bot<T: Bot + Copy>(&mut self, bot: &T) -> bool {
+	pub fn make_move_bot<T: Bot>(&mut self, bot: &T) -> bool {
 		let move_to = bot.get_move(&self.board);
 		self.make_move(move_to)
 	}

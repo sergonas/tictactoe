@@ -40,6 +40,6 @@ fn main() {
 fn get_player_move() -> (uint, uint) {
 	print!("{} : ", State::X);
 	let input = io::stdin().read_line().ok().unwrap();
-	let res: Vec<uint> = input.as_slice().trim().split(' ').map(|x| from_str::<uint>(x).unwrap()).collect();
+	let res: Vec<uint> = input.as_slice().trim().split(' ').map(|x| x.parse::<uint>().unwrap()).collect();
 	(res[0] - 1, res[1] - 1) 
 }

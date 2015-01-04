@@ -1,13 +1,13 @@
 use std::fmt;
 
 pub struct GameBoard {
-    field: [[State, ..3], ..3]
+    field: [[State;3];3]
 }
 
 impl GameBoard {
     pub fn new() -> GameBoard {
         GameBoard {
-            field: [[State::Empty, ..3], ..3]
+            field: [[State::Empty;3];3]
         }
     }
 

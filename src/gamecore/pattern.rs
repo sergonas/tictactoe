@@ -1,5 +1,4 @@
 use std::ops::Add;
-use std::collections::HashMap;
 use gamecore::{GameBoard,State};
 
 #[derive(Clone,Copy,PartialEq)]

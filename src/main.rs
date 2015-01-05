@@ -1,5 +1,6 @@
 #![feature(associated_types)]
 #![feature(default_type_params)]
+#![allow(dead_code,unused_variables)]
 use gamecore::{State,Game};
 use bots::{Bot,DummyBot,SimpleBot};
 use std::io;

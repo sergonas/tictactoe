@@ -3,17 +3,17 @@ use bots::Bot;
 use std::rand;
 
 pub struct SimpleBot {
-	side: State
+    side: State
 }
 
 impl Bot for SimpleBot {
-	fn new(side: State) -> SimpleBot {
-		SimpleBot {
-			side: side
-		}
-	}
+    fn new(side: State) -> SimpleBot {
+        SimpleBot {
+            side: side
+        }
+    }
 
-	fn get_move(&self, board: &GameBoard) -> (uint, uint) {
+    fn get_move(&self, board: &GameBoard) -> (uint, uint) {
         let can_win = self.can_win(self.side, board);
         if can_win.is_some() {
             return can_win.unwrap();
@@ -29,7 +29,7 @@ impl Bot for SimpleBot {
         } else {
             self.opposite_turn(board)
         }
-	}
+    }
 }
 
 impl SimpleBot {

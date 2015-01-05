@@ -12,5 +12,5 @@ impl Bot for DummyBot {
     fn get_move(&self, board: &GameBoard) -> (uint, uint) {
         let turn = rand::random::<uint>() % 9;
         (turn / 3, turn % 3)
-    }   
+    }
 }

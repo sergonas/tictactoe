@@ -1,4 +1,6 @@
 use std::fmt;
+use std::ops::{Not,Mul};
+use gamecore::Pattern;
 
 pub struct GameBoard {
     field: [[State;3];3]
@@ -18,44 +20,46 @@ impl GameBoard {
     pub fn get_at(&self, at: (uint, uint)) -> State {
         self.field[at.0][at.1]
     }
+
+    pub fn empty_count(&self) -> uint {
+        let mut counter = 0u;
+        for i in self.field.iter() {
+            for j in i.iter() {
+                match *j {
+                    State::Empty => counter += 1,
+                    _ => {},
+                }
+            }
+        }
+
+        counter
+    }
 }
 
+#[derive(Copy,PartialEq)]
 pub enum State {
     Empty, X, O
 }
 
-impl State {
-    pub fn negate(self) -> State {
+impl Not for State {
+    type Output = State;
+
+    fn not(self) -> State {        
         match self {
-            State::O => State::X,
             State::X => State::O,
-            _ => State::Empty
+            State::O => State::X,
+            State::Empty => State::Empty
         }
-    }     
+    }
 }
 
-impl PartialEq for State {
-    fn eq(&self, other: &State) -> bool {
-        match *other {
-            State::Empty => {
-                match *self {
-                    State::Empty => true,
-                    _ => false
-                }
-            },
-            State::X => {
-                match *self {
-                    State::X => true,
-                    _ => false
-                }
-            },
-            State::O => {
-                match *self {
-                    State::O => true,
-                    _ => false
-                }
-            }
-        }
+impl Mul<uint> for State {
+    type Output = Pattern;
+
+    fn mul(self, rhs: uint) -> Pattern {
+        let mut p = Pattern::new();
+        p.set(self, rhs);
+        p
     }
 }
 
@@ -68,8 +72,4 @@ impl fmt::Show for State {
         };
         fmt.pad(out)
     }
-}
-
-impl Copy for State {
-    
 }

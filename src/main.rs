@@ -1,3 +1,5 @@
+#![feature(associated_types)]
+#![feature(default_type_params)]
 use gamecore::{State,Game};
 use bots::{Bot,DummyBot,SimpleBot};
 use std::io;
@@ -10,31 +12,25 @@ fn main() {
     let bot1: SimpleBot = Bot::new(State::X);
     let bot2: DummyBot = Bot::new(State::O);
     println!("{}", game);
-/*    while game.is_game_ended() == State::Empty {
-    	while !game.make_move(get_player_move()) {
-    		println!("Bad move");
-    	};
-
-    	while !game.make_move_bot(&bot) && game.is_game_ended() == State::Empty { };
-
-    	println!("{}", game);
-    }*/
 
     let mut counter = 1i;
-    while game.is_game_ended() == State::Empty {
+    while game.is_game_ended() == None {
         println!("{}zzzzzzzzzzzzzzzzzzzzzzz", counter);
         counter += 1;
-        while !game.make_move_bot(&bot1) && game.is_game_ended() == State::Empty { };
+        while !game.make_move_bot(&bot1) && game.is_game_ended() == None { };
         println!("{}", game);
 
         println!("{}zzzzzzzzzzzzzzzzzzzzzzz", counter);
         counter += 1;
-        while !game.make_move_bot(&bot2) && game.is_game_ended() == State::Empty { };
+        while !game.make_move_bot(&bot2) && game.is_game_ended() == None { };
 
         println!("{}", game);
     }
-
-    println!("Winner is {}!", game.is_game_ended());
+    match game.is_game_ended() {
+        Some(State::Empty) => println!("Draw!"),
+        Some(x) => println!("Winner is {}", x),
+        None => println!("Something stange happend =(")
+    }
 }
 
 fn get_player_move() -> (uint, uint) {

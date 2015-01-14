@@ -13,16 +13,16 @@ impl GameBoard {
         }
     }
 
-    pub fn set_at(& mut self, who: State, at: (uint, uint)) {
+    pub fn set_at(& mut self, who: State, at: (usize, usize)) {
         self.field[at.0][at.1] = who;
     }
 
-    pub fn get_at(&self, at: (uint, uint)) -> State {
+    pub fn get_at(&self, at: (usize, usize)) -> State {
         self.field[at.0][at.1]
     }
 
-    pub fn empty_count(&self) -> uint {
-        let mut counter = 0u;
+    pub fn empty_count(&self) -> usize {
+        let mut counter = 0us;
         for i in self.field.iter() {
             for j in i.iter() {
                 match *j {
@@ -53,10 +53,10 @@ impl Not for State {
     }
 }
 
-impl Mul<uint> for State {
+impl Mul<usize> for State {
     type Output = Pattern;
 
-    fn mul(self, rhs: uint) -> Pattern {
+    fn mul(self, rhs: usize) -> Pattern {
         let mut p = Pattern::new();
         p.set(self, rhs);
         p

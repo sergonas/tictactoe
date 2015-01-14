@@ -16,8 +16,8 @@ impl Bot for MasterBot {
         }
     }
 
-    fn get_move(&self, board: &GameBoard) -> (uint, uint) {
-        (0u, 0u)
+    fn get_move(&self, board: &GameBoard) -> (usize, usize) {
+        (0us, 0us)
     }
 }
 

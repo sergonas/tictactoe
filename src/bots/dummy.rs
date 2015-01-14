@@ -9,8 +9,8 @@ impl Bot for DummyBot {
         DummyBot
     }
 
-    fn get_move(&self, board: &GameBoard) -> (uint, uint) {
-        let turn = rand::random::<uint>() % 9;
+    fn get_move(&self, board: &GameBoard) -> (usize, usize) {
+        let turn = rand::random::<usize>() % 9;
         (turn / 3, turn % 3)
     }
 }

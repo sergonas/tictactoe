@@ -13,7 +13,7 @@ impl Bot for SimpleBot {
         }
     }
 
-    fn get_move(&self, board: &GameBoard) -> (uint, uint) {
+    fn get_move(&self, board: &GameBoard) -> (usize, usize) {
         let can_win = self.can_win(self.side, board);
         if can_win.is_some() {
             return can_win.unwrap();
@@ -33,7 +33,7 @@ impl Bot for SimpleBot {
 }
 
 impl SimpleBot {
-    fn can_win(&self, check_for: State, board: &GameBoard) -> Option<(uint, uint)> {
+    fn can_win(&self, check_for: State, board: &GameBoard) -> Option<(usize, usize)> {
         let pattern = check_for * 2 + State::Empty * 1;
         match pattern.find_first(board) {
             Some(x) => {
@@ -51,7 +51,7 @@ impl SimpleBot {
         }
     }
 
-    fn opposite_turn(&self, board: &GameBoard) -> (uint, uint) {
+    fn opposite_turn(&self, board: &GameBoard) -> (usize, usize) {
         if (board.get_at((0, 0)) == !self.side || board.get_at((1, 0)) == !self.side || 
             board.get_at((0, 1)) == !self.side) && board.get_at((2, 2)) == State::Empty {
             (2, 2)
@@ -65,9 +65,9 @@ impl SimpleBot {
             board.get_at((0, 1)) == !self.side) && board.get_at((2, 2)) == State::Empty {
             (2, 2)
         } else {
-            let mut turn = (rand::random::<uint>() % 3, rand::random::<uint>() % 3);
+            let mut turn = (rand::random::<usize>() % 3, rand::random::<usize>() % 3);
             while board.get_at(turn) != State::Empty {
-                turn = (rand::random::<uint>() % 3, rand::random::<uint>() % 3);
+                turn = (rand::random::<usize>() % 3, rand::random::<usize>() % 3);
             }
             turn
         }

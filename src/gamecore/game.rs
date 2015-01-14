@@ -15,7 +15,7 @@ impl Game {
         }
     }
 
-    pub fn make_move(&mut self, point: (uint, uint)) -> bool {
+    pub fn make_move(&mut self, point: (usize, usize)) -> bool {
         if self.board.get_at(point) == State::Empty && self.is_game_ended() == None {
             self.board.set_at(!self.last_turn, point);
             self.last_turn = !self.last_turn;
@@ -60,7 +60,7 @@ impl Game {
 
 impl fmt::Show for Game {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
-        write!(fmt, "{} {} {}\n{} {} {}\n{} {} {}", self.board.get_at((0,0)), self.board.get_at((0,1)), 
+        write!(fmt, "{:?} {:?} {:?}\n{:?} {:?} {:?}\n{:?} {:?} {:?}", self.board.get_at((0,0)), self.board.get_at((0,1)), 
             self.board.get_at((0,2)), self.board.get_at((1,0)), self.board.get_at((1,1)), self.board.get_at((1,2)), 
             self.board.get_at((2,0)), self.board.get_at((2,1)), self.board.get_at((2,2)))
     }

@@ -1,5 +1,5 @@
+extern crate rand;
 use gamecore::{GameBoard,State};
-use std::rand;
 use bots::Bot;
 
 pub struct DummyBot;

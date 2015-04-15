@@ -1,6 +1,6 @@
+extern crate rand;
 use gamecore::{GameBoard,State};
 use bots::Bot;
-use std::rand;
 
 pub struct SimpleBot {
     side: State

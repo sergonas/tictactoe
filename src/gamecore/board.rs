@@ -36,7 +36,7 @@ impl GameBoard {
     }
 }
 
-#[derive(Copy,PartialEq)]
+#[derive(Copy,Clone,PartialEq)]
 pub enum State {
     Empty, X, O
 }
@@ -63,7 +63,7 @@ impl Mul<usize> for State {
     }
 }
 
-impl fmt::Show for State {
+impl fmt::Debug for State {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
         let out = match *self {
             State::Empty => "_",

@@ -58,7 +58,7 @@ impl Game {
     }
 }
 
-impl fmt::Show for Game {
+impl fmt::Debug for Game {
     fn fmt(&self, fmt: &mut fmt::Formatter) -> fmt::Result {
         write!(fmt, "{:?} {:?} {:?}\n{:?} {:?} {:?}\n{:?} {:?} {:?}", self.board.get_at((0,0)), self.board.get_at((0,1)), 
             self.board.get_at((0,2)), self.board.get_at((1,0)), self.board.get_at((1,1)), self.board.get_at((1,2)), 

@@ -25,7 +25,7 @@ impl Pattern {
     }
 
     fn vertical(&self, board: &GameBoard) -> Option<[usize;6]> {  //FIXME
-        for x in range(0us, 3us) {
+        for x in 0us..3us {
             let reslt = self.check_line(board, [0, x, 1, x, 2, x]);
             if reslt.is_some() {
                 return reslt;
@@ -35,7 +35,7 @@ impl Pattern {
     }
 
     fn horizontal(&self, board: &GameBoard) -> Option<[usize;6]> {
-        for x in range(0us, 3us) {
+        for x in 0us..3us {
             let reslt = self.check_line(board, [x, 0, x, 1, x, 2]);
             if reslt.is_some() {
                 return reslt;

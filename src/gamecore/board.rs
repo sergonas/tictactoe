@@ -22,7 +22,7 @@ impl GameBoard {
     }
 
     pub fn empty_count(&self) -> usize {
-        let mut counter = 0us;
+        let mut counter = 0usize;
         for i in self.field.iter() {
             for j in i.iter() {
                 match *j {

@@ -1,8 +1,16 @@
 [package]
 
-name = "checker"
+name = "tictactoe"
 version = "0.0.2"
 authors = ["Zalizko Sergey <sergonas@gmail.com>"]
+
+[[bin]]
+name="tictactoe-cli"
+path="src/main.rs"
+
+[[bin]]
+name="tictactoe-ui"
+path="src/bin/tictactoe-ui.rs"
 
 [dependencies]
 rand = "*"

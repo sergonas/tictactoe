@@ -1,5 +1,5 @@
 [root]
-name = "checker"
+name = "tictactoe"
 version = "0.0.2"
 dependencies = [
  "gamecore 0.0.1",

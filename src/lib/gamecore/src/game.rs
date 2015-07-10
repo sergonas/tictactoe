@@ -1,5 +1,5 @@
-use gamecore::{GameBoard,State};
-use bots::Bot;
+use board::{GameBoard,State};
+use bot::Bot;
 use std::fmt;
 
 pub struct Game {

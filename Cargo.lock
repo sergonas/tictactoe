@@ -1,9 +1,14 @@
 [root]
 name = "checker"
-version = "0.0.1"
+version = "0.0.2"
 dependencies = [
+ "gamecore 0.0.1",
  "rand 0.3.8 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "gamecore"
+version = "0.0.1"
 
 [[package]]
 name = "libc"

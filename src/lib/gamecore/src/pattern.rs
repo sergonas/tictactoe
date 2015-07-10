@@ -1,5 +1,5 @@
 use std::ops::Add;
-use gamecore::{GameBoard,State};
+use board::{GameBoard,State};
 
 #[derive(Clone,Copy,PartialEq)]
 pub struct Pattern { //FIXME or not

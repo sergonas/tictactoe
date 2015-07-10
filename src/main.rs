@@ -1,12 +1,12 @@
 #![allow(dead_code,unused_variables)]
-use gamecore::{State,Game};
-use bots::{Bot,DummyBot,SimpleBot};
+extern crate gamecore;
+use gamecore::{State,Game,Bot};
+use bots::{DummyBot,SimpleBot};
 use std::io;
 use std::io::BufRead;
 use std::io::Write;
 
 mod bots;
-mod gamecore;
 
 // fn main() {
 //     let mut results = [0u64;3];
@@ -52,10 +52,10 @@ fn main() {
 
 fn get_player_move() -> (usize, usize) {
 	print!("{:?} : ", State::X);
-    io::stdout().flush().ok().expect("Could not flush stdout"); //FIXME. Remove later, already fixed in nightly.
+    io::stdout().flush().ok().expect("Could not flush stdout"); //FIXME. Remove later, already fixed in nightly. UPD. Not really fixed
 	let mut input = String::new();
     let stdin = io::stdin();
     stdin.lock().read_line(&mut input).ok().expect("Something went wrong while reading");
-	let res: Vec<usize> = AsRef::<str>::as_ref(&input).trim().split(' ').map(|x| x.parse::<usize>().ok().expect("Error while parsing input")).collect();
+	let res: Vec<usize> = input.trim().split(' ').map(|x| x.parse::<usize>().ok().expect("Error while parsing input")).collect();
 	(res[0] - 1, res[1] - 1) 
 }

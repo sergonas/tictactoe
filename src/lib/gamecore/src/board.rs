@@ -1,6 +1,6 @@
 use std::fmt;
 use std::ops::{Not,Mul};
-use gamecore::Pattern;
+use pattern::Pattern;
 
 pub struct GameBoard {
     field: [[State;3];3]

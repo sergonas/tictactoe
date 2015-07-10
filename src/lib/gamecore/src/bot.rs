@@ -1,4 +1,4 @@
-use gamecore::{GameBoard,State};
+use board::{GameBoard,State};
 
 pub trait Bot {
     fn new(side: State) -> Self;

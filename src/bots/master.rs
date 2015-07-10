@@ -1,5 +1,5 @@
-use gamecore::{GameBoard,State};
-use bots::Bot;
+extern crate gamecore;
+use gamecore::{GameBoard,State,Bot};
 
 pub struct MasterBot  {
     side: State,

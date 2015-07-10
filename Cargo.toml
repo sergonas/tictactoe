@@ -1,8 +1,11 @@
 [package]
 
 name = "checker"
-version = "0.0.1"
+version = "0.0.2"
 authors = ["Zalizko Sergey <sergonas@gmail.com>"]
 
 [dependencies]
-rand = "0.3.8"
+rand = "*"
+
+[dependencies.gamecore]
+path = "src/lib/gamecore"
